@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Parsing {
 
-    private  String URL = "https://auto.ria.com/uk/search/?year[0].gte=2016&categories.main.id=1&brand.id[0]=62&model.id[0]=586&price.currency=1&abroad.not=0&custom.not=1&page=0&size=10";
+    private static String URL = "https://auto.ria.com/uk/search/?year[0].gte=2016&categories.main.id=1&brand.id[0]=62&model.id[0]=586&price.currency=1&abroad.not=0&custom.not=1&page=0&size=10";
 
-    public  List<Advertisment> getInfo() {
+    public static List<Advertisment> getInfo() {
         List<Advertisment> list = new LinkedList<>();
         try {
             Document doc = Jsoup.connect(URL).get();
