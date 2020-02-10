@@ -11,7 +11,7 @@
    <children>
       <AnchorPane layoutX="-3.0" layoutY="80.0" prefHeight="320.0" prefWidth="607.0" style="-fx-background-color: #fafafa;">
          <children>
-            <Button fx:id="start" layoutX="59.0" layoutY="49.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="171.0" style="-fx-background-color: #eaa224;" text="Start" textFill="#fcfcfc" >
+            <Button fx:id="start" onAction="#onClickMethod" layoutX="59.0" layoutY="49.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="171.0" style="-fx-background-color: #eaa224;"  text="Start" textFill="#fcfcfc" >
                <font>
                   <Font size="22.0" />
                </font>
