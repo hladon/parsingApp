@@ -10,8 +10,9 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 public class WriteExcel {
+    private static String fileName="D:\\Новая папка (2)\\parsingApp\\src\\main\\resources\\file.xls";
+
     public static void saveInfo(List<Advertisment> list){
-        String fileName="D:\\Новая папка (2)\\parsingApp\\src\\main\\resources\\file.xls";
         HSSFWorkbook workbook=new HSSFWorkbook();
         HSSFSheet sheet=workbook.createSheet("sheet1");
         int rownum=0;
@@ -31,5 +32,13 @@ public class WriteExcel {
             e.printStackTrace();
         }
 
+    }
+
+    public static String getFileName() {
+        return fileName;
+    }
+
+    public static void setFileName(String fileName) {
+        WriteExcel.fileName = fileName;
     }
 }

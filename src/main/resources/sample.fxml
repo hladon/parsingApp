@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <AnchorPane layoutX="-3.0" layoutY="80.0" prefHeight="320.0" prefWidth="607.0" style="-fx-background-color: #fafafa;">
+      <AnchorPane layoutY="80.0" prefHeight="327.0" prefWidth="615.0" style="-fx-background-color: #fafafa;" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0">
          <children>
-            <Button fx:id="start"  onAction="#onClickMethod" layoutX="59.0" layoutY="49.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="171.0" style="-fx-background-color: #eaa224;"  text="Start" textFill="#fcfcfc" >
+            <Button fx:id="start" layoutX="59.0" layoutY="49.0" mnemonicParsing="false" onAction="#onClickMethod" prefHeight="47.0" prefWidth="171.0" text="Start" textFill="#fcfcfc">
                <font>
                   <Font size="22.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button fx:id="setLocation" layoutX="489.0" layoutY="160.0" mnemonicParsing="false" style="-fx-background-color: #eaa224;" text="Location" textFill="#f8f8f8" />
-            <TextField fx:id="adress" layoutX="59.0" layoutY="160.0" prefHeight="25.0" prefWidth="425.0" />
+            <Button fx:id="setLocation" onAction="#chooseLocation" layoutX="489.0" layoutY="160.0" mnemonicParsing="false" text="Location" textFill="#f8f8f8">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <TextField fx:id="address" layoutX="59.0" layoutY="160.0" prefHeight="25.0" prefWidth="425.0" />
             <Text layoutX="59.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Directory to save" wrappingWidth="202.13671875">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
+            <Text fx:id="info" layoutX="59.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="302.13671875" />
          </children>
       </AnchorPane>
       <Text fill="#fcf8f8" layoutX="120.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parser" textAlignment="CENTER" wrappingWidth="360.13671875">

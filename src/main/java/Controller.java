@@ -6,10 +6,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 public class Controller  {
 
@@ -20,11 +26,29 @@ public class Controller  {
     private Button setLocation;
 
     @FXML
-    private TextField adress;
+    private TextField address;
 
+    @FXML
+    private Text info;
+
+    public void initialize(){
+       String curLocation=System.getProperty("user.dir")+"\\file.xls";
+       WriteExcel.setFileName(curLocation);
+       address.setText(WriteExcel.getFileName());
+    }
 
     public void onClickMethod(ActionEvent actionEvent) {
-        System.out.println("done");
+
+        info.setText("Done");
+
+    }
+
+    public void chooseLocation(ActionEvent actionEvent){
+        DirectoryChooser directoryChooser=new DirectoryChooser();
+        directoryChooser.setTitle("Select directory");
+        Stage stage=(Stage)address.getScene().getWindow();
+        directoryChooser.showDialog(stage);
+
     }
 
 }
