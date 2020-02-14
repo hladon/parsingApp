@@ -39,6 +39,6 @@ public class WriteExcel {
     }
 
     public static void setFileName(String fileName) {
-        WriteExcel.fileName = fileName;
+        WriteExcel.fileName = fileName+"\\file.xls";
     }
 }

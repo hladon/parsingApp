@@ -12,6 +12,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -32,7 +33,7 @@ public class Controller  {
     private Text info;
 
     public void initialize(){
-       String curLocation=System.getProperty("user.dir")+"\\file.xls";
+       String curLocation=System.getProperty("user.dir");
        WriteExcel.setFileName(curLocation);
        address.setText(WriteExcel.getFileName());
     }
@@ -47,8 +48,9 @@ public class Controller  {
         DirectoryChooser directoryChooser=new DirectoryChooser();
         directoryChooser.setTitle("Select directory");
         Stage stage=(Stage)address.getScene().getWindow();
-        directoryChooser.showDialog(stage);
-
+        File file=directoryChooser.showDialog(stage);
+        WriteExcel.setFileName(file.getAbsolutePath());
+        address.setText(WriteExcel.getFileName());
     }
 
 }
