@@ -38,9 +38,7 @@ public class Controller  {
     }
 
     public void onClickMethod(ActionEvent actionEvent) {
-
         info.setText("Done");
-
     }
 
     public void chooseLocation(ActionEvent actionEvent){
@@ -49,6 +47,11 @@ public class Controller  {
         Stage stage=(Stage)address.getScene().getWindow();
         directoryChooser.showDialog(stage);
 
+    }
+
+    @FXML
+    void TextinputAction(ActionEvent event) {
+        System.out.println("Textinput: " + address.getText());
     }
 
 }
