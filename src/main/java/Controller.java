@@ -39,8 +39,8 @@ public class Controller  {
     }
 
     public void onClickMethod(ActionEvent actionEvent) {
-
-        info.setText("Done");
+        WriteExcel.saveInfo(Parsing.getInfo());
+        info.setText("Saved");
 
     }
 
