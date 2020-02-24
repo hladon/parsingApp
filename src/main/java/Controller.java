@@ -1,21 +1,12 @@
-import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
 
 public class Controller  {
 
@@ -32,26 +23,26 @@ public class Controller  {
     private Text info;
 
     public void initialize(){
-       String curLocation=System.getProperty("user.dir")+"\\file.xls";
+       String curLocation=System.getProperty("user.dir");
        WriteExcel.setFileName(curLocation);
        address.setText(WriteExcel.getFileName());
     }
 
     public void onClickMethod(ActionEvent actionEvent) {
-        info.setText("Done");
+        WriteExcel.saveInfo(Parsing.getInfo());
+        info.setText("Saved");
+
     }
 
     public void chooseLocation(ActionEvent actionEvent){
         DirectoryChooser directoryChooser=new DirectoryChooser();
         directoryChooser.setTitle("Select directory");
         Stage stage=(Stage)address.getScene().getWindow();
-        directoryChooser.showDialog(stage);
-
-    }
-
-    @FXML
-    void TextinputAction(ActionEvent event) {
-        System.out.println("Textinput: " + address.getText());
+        File file=directoryChooser.showDialog(stage);
+        if (file==null)
+            return;
+        WriteExcel.setFileName(file.getAbsolutePath());
+        address.setText(WriteExcel.getFileName());
     }
 
 }
